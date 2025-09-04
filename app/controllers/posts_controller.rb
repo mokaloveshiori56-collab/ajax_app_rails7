@@ -3,8 +3,8 @@ class PostsController < ApplicationController
     @posts = Post.order(id: "DESC")
   end
 
-  def create
-    Post.create(content: params[:content])
-    render json:{ post: post }
+   def create
+    @post = Post.create(content: params[:content]) # ここで@postという変数に代入
+    render json:{ post: @post } # 代入した@postをレスポンスとして返す
   end
 end
